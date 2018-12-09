@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block title %} Задачи {% endblock %}
+{% block content %}
+    <h2>Список задач: </h2>
+    <table>
+        <th>Задача</th>
+        <th>Готовность</th>
+        <th>Выполнить до</th>
+        <th colspan="3">Действия</th>
+        <tb>
+            {% for task in tasks %}
+                <tr>
+                    <td {% if task.status == 'done' %}class="strike"{% endif %}>{{ task.name }}</td>
+                    <td>{% if task.status == 'new' %}Новая{% elif task.status == 'done' %}Выполнена{% else %}В процессе{% endif %}</td>
+                    <td>{{ task.due_date }}</td>
+                    <td>{% if task.status != 'done' %}<a href="{% url 'edit' task.pk %}">Выполнить</a>{% endif %}</td>
+                    <td><a href="{% url 'delete' task.pk %}">Удалить</a></td>
+                </tr>
+            {% endfor %}
+        </tb>
+    </table>
+    <h2>Добавить новую задачу</h2>
+    <form action="{% url 'create' %}" method="post">
+        {% csrf_token %}
+        <input type="text" name="name" placeholder="Надо сделать: ">
+        <input class="datetime" type="datetime-local" name="due_date">
+        <input class="button" type="submit" value="Добавить задачу">
+    </form>
+{% endblock %}

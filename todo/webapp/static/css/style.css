@@ -1,0 +1,63 @@
+
+.container {
+    max-width: 90%;
+    padding: 0 10px;
+    margin: 0 auto;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    border: solid 1px black;
+    padding: 3px 3px;
+}
+
+th {
+    background-color: cadetblue;
+}
+
+td:hover {
+    background-color: antiquewhite;
+}
+
+.strike {
+    text-decoration: line-through;
+}
+.navbar {
+    background-color: aquamarine;
+
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    color: black;
+    text-decoration: underline;
+}
+
+li {
+    list-style: none;
+    padding: 10px 10px;
+    display: inline-block;
+}
+
+.datetime {
+    background-color: aquamarine;
+    border: solid 1px black;
+}
+
+.button {
+    background-color: aquamarine;
+    border: solid 1px black;
+    padding: 5px;
+}
+
+.button:hover {
+    cursor: pointer;
+    background-color: antiquewhite;
+}
